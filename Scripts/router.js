@@ -97,4 +97,16 @@ router.AddTable(["/",
                  "/register", 
                  "/login", 
                  "/edit"]);
+                
+let route = location.pathname; // alias for location.pathname
+
+if(router.Find(route) > -1)
+{
+    router.ActiveLink = (route == "/") ? "home" : route.substring(1)
+}
+else
+{
+    router.ActiveLink = "404";
+}
+
 
