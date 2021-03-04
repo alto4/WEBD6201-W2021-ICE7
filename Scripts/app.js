@@ -180,6 +180,11 @@
 
     function displayContactList() 
     {
+      // don't allow visitors to go here
+      authGuard();
+
+      toggleLogin();
+
       if (localStorage.length > 0) 
       {
 
@@ -370,6 +375,12 @@
           // redirect back to login
           location.href = "/login";
         });
+
+        // make it look like each nav item is an active link
+        $("#logout").on("mouseover", function()
+        {
+          $(this).css('cursor', 'pointer');
+        });
        
         $(`<li class="nav-item">
         <a id="contactListLink" class="nav-link" aria-current="page" href="/contact-list"><i class="fas fa-users fa-lg"></i> Contact List</a>
@@ -382,6 +393,15 @@
         $("#loginListItem").html(
           `<a id="login" class="nav-link" aria-current="page"><i class="fas fa-sign-in-alt"></i> Login</a>`
           );
+      }
+    }
+
+    function authGuard()
+    {
+      if(!sessionStorage.getItem("user"))
+      {
+      // redirect back to login page
+      location.href = "/login";
       }
     }
 
@@ -420,8 +440,7 @@
 
         loadFooter();
 
-        // toggle login/logout
-       toggleLogin();
+        
         
     }
 
