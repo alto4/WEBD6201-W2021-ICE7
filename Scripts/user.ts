@@ -1,9 +1,7 @@
 
 // User Class
-
-((core)=>
-{
-  class User 
+namespace core{
+  export class User 
   {
     // Instance Variables
     private m_displayName: string;
@@ -142,8 +140,7 @@
     }
   }
 
-  core.User = User;
 
-})(core || (core={}));
+};
 
 

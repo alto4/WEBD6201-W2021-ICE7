@@ -1,4 +1,5 @@
 "use strict";
+var core;
 (function (core) {
     class Router {
         constructor() {
@@ -32,6 +33,7 @@
     }
     core.Router = Router;
 })(core || (core = {}));
+;
 let router = new core.Router();
 router.AddTable(["/",
     "/home",

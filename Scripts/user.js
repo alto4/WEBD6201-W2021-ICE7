@@ -1,5 +1,6 @@
 "use strict";
-((core) => {
+var core;
+(function (core) {
     class User {
         constructor(displayName = "", emailAddress = "", username = "", password = "") {
             this.DisplayName = displayName;
@@ -65,4 +66,5 @@
     }
     core.User = User;
 })(core || (core = {}));
+;
 //# sourceMappingURL=user.js.map

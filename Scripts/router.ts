@@ -1,5 +1,5 @@
-(function (core) {
-    class Router {
+namespace core {
+    export class Router {
         // Instance variables
         private m_activeLink: string;
         m_routingTable: string[];
@@ -53,7 +53,7 @@
          * @param {string} route
          * @returns {number}
          */
-        public Find(route: string): number 
+        public Find(route: any): number 
         {
             return this.m_routingTable.indexOf(route);
         }
@@ -85,8 +85,7 @@
             return this.m_routingTable.toString();
         }
     }
-    core.Router = Router;
-})(core || (core = {}));
+};
 
 
 // TODO: Move code below into separate file
