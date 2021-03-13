@@ -2,7 +2,7 @@ namespace core {
     export class Router {
         // Instance variables
         private m_activeLink: string;
-        private m_linkData:string;
+        private m_linkData: string;
         private m_routingTable: string[];
 
         // constructors
