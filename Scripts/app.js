@@ -11,7 +11,7 @@ var core;
             $(this).css('cursor', 'pointer');
         });
     }
-    function highlightActiveLink(link, data = "") {
+    function highlightActiveLink(link) {
         $(`#${router.ActiveLink}`).removeClass("active");
         if (link == "logout") {
             sessionStorage.clear();
@@ -19,12 +19,11 @@ var core;
         }
         else {
             router.ActiveLink = link;
-            router.LinkData = data;
         }
         $(`#${router.ActiveLink}`).addClass("active");
     }
     function loadLink(link, data = "") {
-        highlightActiveLink(link, data);
+        highlightActiveLink(link);
         loadContent(router.ActiveLink, ActiveLinkCallBack(router.ActiveLink));
         history.pushState({}, "", router.ActiveLink);
     }
@@ -230,6 +229,7 @@ var core;
             }
         }
         addLinkEvents();
+        highlightActiveLink(router.ActiveLink);
     }
     function authGuard() {
         if (!sessionStorage.getItem("user")) {

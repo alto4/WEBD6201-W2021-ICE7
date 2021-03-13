@@ -28,9 +28,8 @@ namespace core
      * highlightActiveLink - highlights active link in the navbar
      * 
      * @param link 
-     * @param data 
      */
-    function highlightActiveLink(link: string, data: string = ""): void 
+    function highlightActiveLink(link: string): void 
     {
       $(`#${router.ActiveLink}`).removeClass("active"); // removes highlighted link
  
@@ -41,7 +40,6 @@ namespace core
       }
       else {
         router.ActiveLink = link;
-        router.LinkData = data;
       }
      
       $(`#${router.ActiveLink}`).addClass("active"); // applies highlighted link to new page
@@ -58,7 +56,7 @@ namespace core
     function loadLink(link: string, data: string = ""): void 
     {
 
-      highlightActiveLink(link, data);
+      highlightActiveLink(link);
       loadContent(router.ActiveLink, ActiveLinkCallBack(router.ActiveLink));
       history.pushState({},"", router.ActiveLink); // this replaces the url displayed in the browser    
     }
@@ -446,6 +444,7 @@ namespace core
       }
 
       addLinkEvents();
+      highlightActiveLink(router.ActiveLink);
     }
 
     function authGuard(): void
